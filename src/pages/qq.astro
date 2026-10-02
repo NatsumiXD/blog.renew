@@ -1,0 +1,37 @@
+---
+import MainGridLayout from '../layouts/MainGridLayout.astro';
+import ImageWrapper from '../components/misc/ImageWrapper.astro';
+import { Icon } from 'astro-icon/components';
+import { profileConfig } from '../config';
+import { QQ_SHARE_URL } from '../utils/qq';
+---
+<MainGridLayout title="QQ 联系" description="通过 QQ 联系 Rakurin Natsumi">
+  <qq-contact class="card-base block px-6 py-10 sm:px-10 sm:py-12">
+    <div class="mx-auto max-w-lg text-center">
+      <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-[var(--btn-regular-bg)]">
+        <ImageWrapper src={profileConfig.avatar || ''} alt={profileConfig.name} class="w-full h-full object-cover" />
+      </div>
+      <h1 class="text-3xl font-bold text-90 mb-3">在 QQ 上找到我</h1>
+      <p class="text-75 mb-6">{profileConfig.name}</p>
+      <div class="rounded-xl bg-[var(--btn-regular-bg)] px-5 py-4 mb-7">
+        <p class="text-50 text-sm mb-1">QQ</p>
+        <p class="text-90 text-2xl font-bold tracking-wider select-all">@Rakurin</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button data-open class="btn-regular rounded-xl min-h-12 px-6 gap-2 font-bold flex-1">
+          <Icon name="fa6-brands:qq" class="text-xl" />打开 QQ
+        </button>
+        <button data-copy class="btn-plain rounded-xl min-h-12 px-6 gap-2 font-medium flex-1">
+          <Icon name="fa6-regular:copy" class="text-lg" />复制号码
+        </button>
+      </div>
+      <p data-status role="status" aria-live="polite" class="text-50 text-sm mt-5 min-h-10">点击“打开 QQ”，前往我的个人资料卡。</p>
+      <div class="border-t border-[var(--line-color)] mt-5 pt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+        <a href={QQ_SHARE_URL} data-astro-reload class="text-[var(--primary)] hover:underline">腾讯官方跳转</a>
+        <a data-download href="https://im.qq.com" data-astro-reload class="text-[var(--primary)] hover:underline">下载 / 升级 QQ</a>
+      </div>
+      <p class="text-50 text-sm leading-relaxed mt-5">如果未能打开，请复制号码，在 QQ 中搜索添加。微信内也可以通过右上角菜单选择“在浏览器打开”。</p>
+      <noscript><p class="text-75 mt-4">请使用腾讯官方跳转入口打开 QQ。</p></noscript>
+    </div>
+  </qq-contact>
+</MainGridLayout>

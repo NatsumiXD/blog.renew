@@ -1,0 +1,319 @@
+---
+import { Image } from 'astro:assets';
+import artwork from '../assets/images/welcome.png';
+import { profileConfig } from '../config';
+---
+<welcome-screen>
+  <button type="button" class="welcome-enter" aria-label="进入 Rakurin Natsumi 的博客">
+    <Image src={artwork} alt="" class="welcome-art" loading="eager" fetchpriority="high" quality={90} />
+    <span class="welcome-shade"></span>
+    <span class="welcome-copy">
+      <span class="welcome-eyebrow">WELCOMETO BAKAWORLD</span>
+      <span class="welcome-title">{profileConfig.name}</span>
+      <span class="welcome-description">笨蛋博客</span>
+      <span class="welcome-divider"></span>
+      <span class="welcome-prompt">轻触任意位置，进入博客 <span aria-hidden="true">↗</span></span>
+    </span>
+    <span class="welcome-footnote">日常 · 想法 · 所见与所学</span>
+    <span class="welcome-signature" aria-hidden="true">
+      <svg viewBox="0 0 1000 180" class="signature-art">
+        <g class="signature-monogram">
+          {[
+            { letter: 'r', d: 'M445 120 V40' },
+            { letter: 'r', d: 'M445 40 H472 Q505 40 505 65 Q505 90 472 90 H445' },
+            { letter: 'r', d: 'M472 90 L507 120' },
+            { letter: 'n', d: 'M530 120 V40' },
+            { letter: 'n', d: 'M530 40 L590 120' },
+            { letter: 'n', d: 'M590 120 V40' },
+          ].flatMap(part => [-1, 0, 1].map(layer => (
+            <path class="signature-initial" data-initial-r={part.letter === 'r' ? '' : undefined}
+              data-initial-n={part.letter === 'n' ? '' : undefined} pathLength="1" d={part.d}
+              transform={`translate(${layer * 2.4} ${layer * 1.2})`}
+              style={`stroke: ${layer === 0 ? '#ffffff' : '#9ccaff'}; opacity: ${layer === 0 ? 1 : 0.65}`} />
+          )))}
+        </g>
+        {Array.from('RakurinNatsumi').map((letter, index) => (
+          <text x={140 + index * 60} y="110" text-anchor="middle" data-signature-letter>{letter}</text>
+        ))}
+      </svg>
+      <span class="signature-caption">正在进入笨蛋博客 · 再次轻触可跳过</span>
+    </span>
+  </button>
+</welcome-screen>
+<script is:inline>
+  (() => {
+    const screen = document.querySelector('welcome-screen');
+    let entered = false;
+    try { entered = sessionStorage.getItem('rakurin-welcome-entered') === '1'; } catch {}
+    if (entered) screen?.remove();
+    else {
+      document.documentElement.classList.add('welcome-pending');
+      document.getElementById('blog-surface')?.setAttribute('inert', '');
+    }
+  })();
+</script>
+<noscript><style> welcome-screen { display: none !important; } </style></noscript>
+
+<style>
+  welcome-screen {
+    --welcome-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: block;
+    overflow: hidden;
+    perspective: 1200px;
+    background: #142944;
+    opacity: 1;
+    transition: opacity 280ms var(--welcome-ease-out);
+  }
+  welcome-screen.leaving { opacity: 0; pointer-events: none; }
+  .welcome-enter {
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    width: 100%;
+    height: 100%;
+    min-height: 100svh;
+    border: 0;
+    padding: 24px;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .welcome-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% 35%;
+    z-index: -3;
+  }
+  .welcome-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(180deg, rgb(9 24 54 / 20%), rgb(9 24 54 / 48%) 50%, rgb(9 24 54 / 55%));
+  }
+  .welcome-copy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 780px);
+    padding: 56px 24px;
+    text-shadow: 0 2px 20px rgb(9 24 54 / 40%);
+  }
+  .welcome-copy::before {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    z-index: -1;
+    border-radius: 48px;
+    background: rgb(16 37 72 / 22%);
+    mask-image: radial-gradient(ellipse, #000 35%, transparent 72%);
+  }
+  .welcome-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .3em; color: #d4e9ff; }
+  .welcome-title { font-size: clamp(32px, 6vw, 72px); line-height: 1.15; font-weight: 700; letter-spacing: -.035em; margin-top: 22px; }
+  .welcome-description { font-size: clamp(14px, 2vw, 18px); letter-spacing: .12em; margin-top: 20px; color: #e2edff; }
+  .welcome-divider { width: 36px; height: 2px; border-radius: 2px; background: #c9e2ff; margin-top: 34px; }
+  .welcome-prompt { display: flex; gap: 14px; align-items: center; margin-top: 24px; font-size: 13px; letter-spacing: .1em; }
+  .welcome-prompt > span { font-size: 20px; transition: transform 160ms var(--welcome-ease-out); }
+  .welcome-footnote { position: absolute; bottom: max(28px, env(safe-area-inset-bottom)); left: 20px; right: 20px; font-size: 11px; letter-spacing: .22em; color: #d2e2f9; }
+  .welcome-copy > span { animation: welcome-reveal 600ms var(--welcome-ease-out) both; }
+  .welcome-title { animation-delay: 60ms !important; }
+  .welcome-description { animation-delay: 120ms !important; }
+  .welcome-divider { animation-delay: 180ms !important; }
+  .welcome-prompt { animation-delay: 240ms !important; }
+  .welcome-enter:focus-visible { outline: none; }
+  .welcome-enter:active .welcome-copy { transform: scale(.97); }
+  .welcome-copy { transition: opacity 200ms var(--welcome-ease-out), transform 160ms var(--welcome-ease-out); }
+  .welcome-signature {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    background: rgb(8 18 35 / 88%);
+    pointer-events: none;
+    transition: opacity 200ms var(--welcome-ease-out);
+  }
+  .signing .welcome-signature { opacity: 1; }
+  .signing .welcome-copy, .signing .welcome-footnote { opacity: 0; }
+  .signature-art { width: min(100%, 900px); overflow: visible; }
+  .signature-art text {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 88px;
+    font-weight: 400;
+    fill: transparent;
+    stroke: #eff6ff;
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+    stroke-dasharray: 650;
+    stroke-dashoffset: 650;
+    opacity: 0;
+    transform-box: view-box;
+    transform-origin: center;
+  }
+  .signature-initial {
+    fill: none;
+    stroke: #eff6ff;
+    stroke-width: 0.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .signature-monogram {
+    transform-box: view-box;
+    transform-origin: 51.75% 44.44%;
+    transform: scale(2.4);
+  }
+  .signature-caption { font-size: 12px; letter-spacing: .16em; color: #b7c5dc; margin-top: 20px; }
+  .welcome-enter:focus-visible .welcome-prompt { text-decoration: underline; text-underline-offset: 6px; }
+  @keyframes welcome-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @media (hover: hover) and (pointer: fine) { .welcome-enter:hover .welcome-prompt > span { transform: translate(3px, -3px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .welcome-enter:active .welcome-copy { transform: none; }
+    welcome-screen { transition-duration: 160ms; }
+    .welcome-copy > span { animation: welcome-fade 160ms ease both; animation-delay: 0ms !important; }
+    .welcome-prompt > span { transition: none; transform: none !important; }
+    @keyframes welcome-fade { from { opacity: 0; } to { opacity: 1; } }
+  }
+</style>
+<style is:global>
+  html.welcome-pending, html.welcome-pending body { overflow: hidden !important; }
+</style>
+<script>
+  class WelcomeScreen extends HTMLElement {
+    private resizeObserver?: ResizeObserver;
+    private motionController?: AbortController;
+    private interactionController?: AbortController;
+    private frame = 0;
+    connectedCallback() {
+      this.interactionController?.abort();
+      this.motionController?.abort();
+      this.resizeObserver?.disconnect();
+      this.interactionController = new AbortController();
+      const interactionSignal = this.interactionController.signal;
+      const image = this.querySelector<HTMLImageElement>('.welcome-art');
+      const motionQuery = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+      this.motionController = new AbortController();
+      const signal = this.motionController.signal;
+      let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+      let velocityX = 0, velocityY = 0, previousTime = 0;
+      const drawTilt = (time: number) => {
+        this.frame = 0;
+        if (!image || !motionQuery.matches) return;
+        // Spring: mass 1, stiffness 100, damping 10. Cap time steps after idle tabs.
+        const dt = previousTime ? Math.min((time - previousTime) / 1000, 1 / 60) : 1 / 60;
+        previousTime = time;
+        velocityX += ((targetX - currentX) * 100 - velocityX * 10) * dt;
+        velocityY += ((targetY - currentY) * 100 - velocityY * 10) * dt;
+        currentX += velocityX * dt;
+        currentY += velocityY * dt;
+        image.style.transform = `scale(1.16) rotateX(${-currentY * 8}deg) rotateY(${currentX * 8}deg)`;
+        if (Math.abs(targetX - currentX) + Math.abs(targetY - currentY) + Math.abs(velocityX) + Math.abs(velocityY) > 0.001) {
+          this.frame = requestAnimationFrame(drawTilt);
+        } else previousTime = 0;
+      };
+      const scheduleTilt = () => { if (!this.frame) this.frame = requestAnimationFrame(drawTilt); };
+      this.addEventListener('pointermove', event => {
+        if (!motionQuery.matches || event.pointerType !== 'mouse') return;
+        const rect = this.getBoundingClientRect();
+        targetX = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1));
+        targetY = Math.max(-1, Math.min(1, (event.clientY - rect.top) / rect.height * 2 - 1));
+        scheduleTilt();
+      }, { signal });
+      this.addEventListener('pointerleave', () => { targetX = targetY = 0; scheduleTilt(); }, { signal });
+      const resetMotion = () => {
+        cancelAnimationFrame(this.frame); this.frame = 0;
+        targetX = targetY = currentX = currentY = 0;
+        velocityX = velocityY = previousTime = 0;
+        if (image) image.style.transform = motionQuery.matches ? 'scale(1.16)' : '';
+      };
+      motionQuery.addEventListener('change', resetMotion, { signal });
+      resetMotion();
+      const centerEyes = () => {
+        if (!image?.naturalWidth || !image.naturalHeight) return;
+        const { width, height } = this.getBoundingClientRect();
+        const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+        const renderedWidth = image.naturalWidth * scale;
+        const renderedHeight = image.naturalHeight * scale;
+        // Place the eye midpoint on the left of the central blur; clamp to avoid empty edges.
+        const x = Math.max(width - renderedWidth, Math.min(0, width * 0.32 - renderedWidth * 0.43));
+        const y = Math.max(height - renderedHeight, Math.min(0, height / 2 - renderedHeight * 0.35));
+        image.style.objectPosition = `${x}px ${y}px`;
+      };
+      image?.addEventListener('load', centerEyes, { once: true, signal: interactionSignal });
+      this.resizeObserver = new ResizeObserver(centerEyes);
+      this.resizeObserver.observe(this);
+      centerEyes();
+      const button = this.querySelector<HTMLButtonElement>('button');
+      button?.focus({ preventScroll: true });
+      button?.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && this.classList.contains('signing')) button.click();
+      }, { signal: interactionSignal });
+      button?.addEventListener('click', async () => {
+        if (this.classList.contains('leaving')) return;
+        try { sessionStorage.setItem('rakurin-welcome-entered', '1'); } catch {}
+        const surface = document.getElementById('blog-surface');
+        const finish = () => {
+          document.documentElement.classList.remove('welcome-pending');
+          surface?.removeAttribute('inert');
+          this.remove();
+          const main = surface?.querySelector('main');
+          if (main) { main.setAttribute('tabindex', '-1'); main.focus({ preventScroll: true }); }
+        };
+        // Touch and some browsers emit clicks with detail 0 as well; never skip by detail.
+        if (this.classList.contains('signing')) { finish(); return; }
+        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion) {
+          this.classList.add('signing');
+          this.motionController?.abort();
+          cancelAnimationFrame(this.frame);
+          const letters = Array.from(this.querySelectorAll<SVGTextElement>('[data-signature-letter]'));
+          const strokes = Array.from(this.querySelectorAll<SVGPathElement>('[data-initial-r], [data-initial-n]'));
+          const monogram = this.querySelector<SVGGElement>('.signature-monogram')!;
+          const play = (element: Element, frames: Keyframe[], duration: number, easing = 'cubic-bezier(0.23, 1, 0.32, 1)') =>
+            element.animate(frames, { duration, easing, fill: 'forwards' }).finished.catch(() => {});
+          // Each letter has three visible parallel contours, each split into three strokes.
+          await Promise.all(strokes.map(stroke => play(stroke, [{ strokeDashoffset: '1' }, { strokeDashoffset: '0' }], 900, 'linear')));
+          if (!this.isConnected) return;
+          // Unfold the complete outlined name from the same central point.
+          await Promise.all([
+            play(monogram, [{ opacity: 1 }, { opacity: 0 }], 350),
+            ...letters.map(letter => {
+              const x = Number(letter.getAttribute('x'));
+              return play(letter, [
+                { opacity: 0, strokeDashoffset: '0', transform: `translateX(${500 - x}px)` },
+                { opacity: 1, strokeDashoffset: '0', transform: 'translateX(0)' },
+              ], 650);
+            }),
+          ]);
+          if (!this.isConnected) return;
+          await Promise.all(letters.map(letter => play(letter, [{ fill: 'transparent' }, { fill: '#eff6ff' }], 500)));
+          if (!this.isConnected) return;
+        }
+        this.classList.add('leaving');
+        window.setTimeout(finish, reducedMotion ? 160 : 280);
+      }, { signal: interactionSignal });
+    }
+    disconnectedCallback() {
+      this.resizeObserver?.disconnect();
+      this.motionController?.abort();
+      this.interactionController?.abort();
+      cancelAnimationFrame(this.frame);
+      this.querySelectorAll('svg text, svg path').forEach(element => element.getAnimations().forEach(animation => animation.cancel()));
+    }
+  }
+  if (!customElements.get('welcome-screen')) customElements.define('welcome-screen', WelcomeScreen);
+</script>
