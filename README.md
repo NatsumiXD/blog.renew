@@ -1,99 +1,117 @@
-# 🍥Fuwari
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen)
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-[![DeepWiki](https://img.shields.io/badge/DeepWiki-saicaca%2Ffuwari-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/saicaca/fuwari)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari?ref=badge_shield&issueType=license)
+# 💧 BakaHome
 
-A static blog template built with [Astro](https://astro.build).
+**笨蛋博客** · Rakurin Natsumi · 一个笨蛋
 
-[**🖥️ Live Demo (Vercel)**](https://fuwari.vercel.app)
+基于 [Fuwari](https://github.com/saicaca/fuwari) 主题定制的个人博客，使用 Astro、Svelte 和 Tailwind CSS 构建。
 
-![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
+- 站点：<https://blog.natsumi.dev/>
+- 仓库：[NatsumiXD/blog.renew](https://github.com/NatsumiXD/blog.renew)
+- 作者：[NatsumiXD](https://github.com/NatsumiXD)
 
-🌏 README in
-[**中文**](https://github.com/saicaca/fuwari/blob/main/docs/README.zh-CN.md) /
-[**日本語**](https://github.com/saicaca/fuwari/blob/main/docs/README.ja.md) /
-[**한국어**](https://github.com/saicaca/fuwari/blob/main/docs/README.ko.md) /
-[**Español**](https://github.com/saicaca/fuwari/blob/main/docs/README.es.md) /
-[**ไทย**](https://github.com/saicaca/fuwari/blob/main/docs/README.th.md) /
-[**Tiếng Việt**](https://github.com/saicaca/fuwari/blob/main/docs/README.vi.md) /
-[**Bahasa Indonesia**](https://github.com/saicaca/fuwari/blob/main/docs/README.id.md) (Provided by the community and may not always be up-to-date)
+## 功能
 
-## ✨ Features
+- 中文界面，支持浅色、深色、跟随系统和主题色调整。
+- 全屏欢迎页：背景按比例裁切、随鼠标倾斜，点击后播放 RN 描线与展开动画。
+- 同一标签页进入博客后跳过欢迎页，站内导航使用 Swup 和淡入淡出过渡。
+- Markdown 文章、标签、分类、归档、目录、图片预览和代码块复制。
+- Pagefind 静态搜索、RSS 和站点地图。
+- QQ 联系页，根据设备和浏览器选择客户端唤起方式。
+- GitHub Actions 自动构建并发布到 `pages` 分支。
 
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions
-- [x] Light / dark mode
-- [x] Customizable theme colors & banner
-- [x] Responsive design
-- [x] Search functionality with [Pagefind](https://pagefind.app/)
-- [x] [Markdown extended features](https://github.com/saicaca/fuwari?tab=readme-ov-file#-markdown-extended-syntax)
-- [x] Table of contents
-- [x] RSS feed
+## 本地运行
 
-## 🚀 Getting Started
+准备 Node.js 22 和 pnpm 9.14.4：
 
-1. Create your blog repository:
-    - [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
-    - Or run one of the following commands:
-       ```sh
-       npm create fuwari@latest
-       yarn create fuwari
-       pnpm create fuwari@latest
-       bun create fuwari@latest
-       deno run -A npm:create-fuwari@latest
-       ```
-2. To edit your blog locally, clone your repository, run `pnpm install` to install dependencies.
-    - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
+```sh
+npm install -g pnpm@9.14.4
+git clone https://github.com/NatsumiXD/blog.renew.git
+cd blog.renew
+pnpm install --frozen-lockfile --offline=false
+pnpm dev
+```
 
-## 📝 Frontmatter of Posts
+默认访问 <http://localhost:4321/>，实际地址以终端输出为准。开发服务支持热重载，日志在当前终端输出，按 `Ctrl+C` 停止。
+
+也可以使用 `script/` 中的脚本：
+
+| 操作 | Windows | Linux |
+| --- | --- | --- |
+| 安装依赖 | `script\install.bat` | `bash script/install.sh` |
+| 启动开发服务 | `script\rundev.bat` | `bash script/rundev.sh` |
+| 检查并构建 | `script\depoly.bat` | `bash script/depoly.sh` |
+
+`rundev` 默认前台运行，也支持 `background`、`status`、`logs` 和 `stop` 参数。`depoly` 保留原脚本名称，仅生成 `dist/`，供手动上传。更多用法见 [项目脚本说明](script/README.md)。
+
+## 常用命令
+
+在项目根目录执行：
+
+| 命令 | 作用 |
+| --- | --- |
+| `pnpm dev` | 启动开发服务 |
+| `pnpm check` | 检查 Astro 和类型错误 |
+| `pnpm build` | 构建 `dist/` 并生成 Pagefind 搜索索引 |
+| `pnpm preview` | 本地预览构建产物 |
+| `pnpm new-post my-post` | 创建文章模板 |
+| `pnpm format` | 格式化源代码 |
+
+搜索索引在构建时生成，验证搜索功能请先执行 `pnpm build`，再运行 `pnpm preview`。
+
+## 配置与内容
+
+| 文件或目录 | 用途 |
+| --- | --- |
+| `src/config.ts` | 标题、副标题、语言、主题色、横幅、目录、图标、个人资料、导航和文章许可 |
+| `astro.config.mjs` | 正式域名、基础路径及构建集成 |
+| `src/constants/constants.ts` | 每页文章数、默认显示模式及页面宽度等 |
+| `src/content/posts/` | 博客文章 |
+| `src/content/spec/about.md` | 关于页面 |
+| `src/components/WelcomeScreen.astro` | 欢迎页文字、布局及入场动画 |
+| `src/assets/images/` | 头像及欢迎页背景 |
+| `public/favicon/water-drop.svg` | 水滴 emoji 网站图标 |
+| `src/pages/qq.astro`、`src/utils/qq.ts` | QQ 页面和客户端跳转地址 |
+
+当前域名为 `https://blog.natsumi.dev/`，副标题为「笨蛋博客」，简介为「一个笨蛋」。修改域名时，同时检查 RSS 的备用地址和工作流中的 `cname`。
+
+### 写文章
+
+```sh
+pnpm new-post my-post
+```
+
+编辑生成的 `src/content/posts/my-post.md`：
 
 ```yaml
 ---
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
+title: 我的文章
+published: 2026-10-03
+description: 一段简短的文章介绍。
+tags: [日常]
+category: 随笔
 draft: false
-lang: jp      # Set only if the post's language differs from the site's language in `config.ts`
+lang: zh_CN
 ---
 ```
 
-## 🧩 Markdown Extended Syntax
+在 frontmatter 下方写 Markdown 正文。`title` 和 `published` 必填；还可以设置 `updated`（更新日期）和 `image`（封面路径）。将 `draft` 设为 `true` 可暂时隐藏文章。
 
-In addition to Astro's default support for [GitHub Flavored Markdown](https://github.github.com/gfm/), several extra Markdown features are included:
+## 自动构建与发布
 
-- Admonitions ([Preview and Usage](https://fuwari.vercel.app/posts/markdown-extended/#admonitions))
-- GitHub repository cards ([Preview and Usage](https://fuwari.vercel.app/posts/markdown-extended/#github-repository-cards))
-- Enhanced code blocks with Expressive Code ([Preview](https://fuwari.vercel.app/posts/expressive-code/) / [Docs](https://expressive-code.com/))
+工作流位于 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)。推送到 `master` 或 `main` 后自动执行，也可在仓库 Actions 页面手动运行。
 
-## ⚡ Commands
+1. 使用 Node.js 22 和 `package.json` 指定的 pnpm 版本安装锁定依赖。
+2. 执行 `pnpm check` 和 `pnpm build`。
+3. 将 `dist/` 的内容发布到 `pages` 分支根目录，替换旧构建文件。
+4. 生成 `.nojekyll` 和内容为 `blog.natsumi.dev` 的 `CNAME`。
 
-All commands are run from the root of the project, from a terminal:
+源码保存在 `master` / `main`，`pages` 仅用于构建产物，请在源码分支修改内容。工作流使用自动提供的 `GITHUB_TOKEN`，仓库策略需允许 `contents: write` 权限。
 
-| Command                    | Action                                              |
-|:---------------------------|:----------------------------------------------------|
-| `pnpm install`             | Installs dependencies                               |
-| `pnpm dev`                 | Starts local dev server at `localhost:4321`         |
-| `pnpm build`               | Build your production site to `./dist/`             |
-| `pnpm preview`             | Preview your build locally, before deploying        |
-| `pnpm check`               | Run checks for errors in your code                  |
-| `pnpm format`              | Format your code using Biome                        |
-| `pnpm new-post <filename>` | Create a new post                                   |
-| `pnpm astro ...`           | Run CLI commands like `astro add`, `astro check`    |
-| `pnpm astro --help`        | Get help using the Astro CLI                        |
+若使用 GitHub Pages 托管，在 **Settings → Pages** 中选择 **Deploy from a branch**，分支选择 **pages**，目录选择 **/ (root)**。随后配置 `blog.natsumi.dev` 的 DNS、自定义域名和 HTTPS。
 
-## ✏️ Contributing
+## 项目来源与许可
 
-Check out the [Contributing Guide](https://github.com/saicaca/fuwari/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
+主题来自 [saicaca/fuwari](https://github.com/saicaca/fuwari)，导入版本为 `6d39b0dec41282e7852e23e032998a5789abee28`。本项目使用 Astro 5.13.10。
 
-## 📄 License
+代码许可见 [LICENSE](LICENSE)（MIT）。文章页面默认显示 **CC BY-NC-SA 4.0**，可在 `src/config.ts` 中调整。图片素材的权利归各自作者所有。
 
-This project is licensed under the MIT License.
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsaicaca%2Ffuwari?ref=badge_large&issueType=license)
+补充说明见 [本地使用文档](docs/LOCAL-SETUP.md)。
