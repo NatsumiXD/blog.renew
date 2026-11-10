@@ -1,0 +1,30 @@
+{
+  "package": "misans-webfont",
+  "version": "4.3.1",
+  "fontVersion": "4.003",
+  "repository": "https://github.com/mobeicanyue/misans-webfont",
+  "archive": "https://registry.npmjs.org/misans-webfont/-/misans-webfont-4.3.1.tgz",
+  "integrity": "sha512-lVU2j0sS0Ah/DjcqPk7X/2Vo7P2498bWQnpt9ruxHnxqzeaC2caQ+CmHjxNCujiDhHHX0q0w9cfabh9Yj5gG9g==",
+  "fontFilesModified": false,
+  "cssChanges": "Rhine MiSans family, regular/demibold/bold Latin shards only; Vite-managed asset URLs scoped to the blog opening.",
+  "files": [
+    {
+      "path": "misans-regular-latin.woff2",
+      "bytes": 36932,
+      "sha256": "b52b8f31e52594ea26ffdf0bd5f56094c5ea8672de5707e5770a94d4584124ec",
+      "upstreamPath": "regular/0.woff2"
+    },
+    {
+      "path": "misans-demibold-latin.woff2",
+      "bytes": 41404,
+      "sha256": "c453965f2d97503c4684dccf8d4ad7c572cd506fa06f5eb5ecd8c85a3a3a4dfc",
+      "upstreamPath": "demibold/0.woff2"
+    },
+    {
+      "path": "misans-bold-latin.woff2",
+      "bytes": 41840,
+      "sha256": "a2b0b0bf4b486ae0763e452b1d8fa4d90aa3a2bacf524afaa2b86423cb103904",
+      "upstreamPath": "bold/0.woff2"
+    }
+  ]
+}

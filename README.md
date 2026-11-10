@@ -11,11 +11,12 @@
 ## 功能
 
 - 中文界面，支持浅色、深色、跟随系统和主题色调整。
-- 全屏欢迎页：背景按比例裁切、随鼠标倾斜，点击后播放 RN 描线与展开动画。
+- BAKA BLOG 启动页：基于 RhineLabUI 的访问、验证、扫描与欢迎动画，欢迎画面结束后自动进入博客首页，可随时跳过。
 - 同一标签页进入博客后跳过欢迎页，站内导航使用 Swup 和淡入淡出过渡。
 - Markdown 文章、标签、分类、归档、目录、图片预览和代码块复制。
 - Pagefind 静态搜索、RSS 和站点地图。
 - QQ 联系页，根据设备和浏览器选择客户端唤起方式。
+- Telegram 联系入口和独立配置的友链页面。
 - GitHub Actions 自动构建并发布到 `pages` 分支。
 
 ## 本地运行
@@ -62,12 +63,15 @@ pnpm dev
 | 文件或目录 | 用途 |
 | --- | --- |
 | `src/config.ts` | 标题、副标题、语言、主题色、横幅、目录、图标、个人资料、导航和文章许可 |
+| `src/friends.config.ts` | 友链名称、地址、简介、头像和排列顺序 |
+| `src/components/rhine-lab/config.ts` | 启动页品牌文字和身份名称 |
 | `astro.config.mjs` | 正式域名、基础路径及构建集成 |
 | `src/constants/constants.ts` | 每页文章数、默认显示模式及页面宽度等 |
 | `src/content/posts/` | 博客文章 |
 | `src/content/spec/about.md` | 关于页面 |
-| `src/components/WelcomeScreen.astro` | 欢迎页文字、布局及入场动画 |
-| `src/assets/images/` | 头像及欢迎页背景 |
+| `src/components/WelcomeScreen.astro` | 启动页结构和入口 |
+| `src/components/rhine-lab/`、`src/styles/rhine-welcome.css` | RhineLabUI 原生动画、时间轴和独立样式，来源及改动见该目录 README |
+| `src/assets/images/` | 头像及横幅图片 |
 | `public/favicon/water-drop.svg` | 水滴 emoji 网站图标 |
 | `src/pages/qq.astro`、`src/utils/qq.ts` | QQ 页面和客户端跳转地址 |
 
@@ -113,5 +117,7 @@ lang: zh_CN
 主题来自 [saicaca/fuwari](https://github.com/saicaca/fuwari)，导入版本为 `6d39b0dec41282e7852e23e032998a5789abee28`。本项目使用 Astro 5.13.10。
 
 代码许可见 [LICENSE](LICENSE)（MIT）。文章页面默认显示 **CC BY-NC-SA 4.0**，可在 `src/config.ts` 中调整。图片素材的权利归各自作者所有。
+
+启动动画提取自 [LBEILC/RhineLabUI](https://github.com/LBEILC/RhineLabUI)，保留原生 DOM/SVG 渲染与时间轴；MIT 署名和 MiSans 字体许可随项目分发，详见 [整合说明](src/components/rhine-lab/README.md)。
 
 补充说明见 [本地使用文档](docs/LOCAL-SETUP.md)。

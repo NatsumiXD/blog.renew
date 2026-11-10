@@ -1,0 +1,129 @@
+/* Opening geometry and palette adapted from RhineLabUI (MIT, LBEILC). */
+@font-face {
+    font-family: "Rhine MiSans";
+    src: url("../assets/rhine-lab/misans-regular-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Rhine MiSans";
+    src: url("../assets/rhine-lab/misans-demibold-latin.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Rhine MiSans";
+    src: url("../assets/rhine-lab/misans-bold-latin.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+rhine-welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: block;
+    overflow: hidden;
+    color: #080a08;
+    background: #e8e5e1;
+    font-family: "Rhine MiSans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    font-synthesis: none;
+    opacity: 1;
+    transition: opacity 220ms var(--ease-out);
+}
+rhine-welcome[hidden] { display: none; }
+rhine-welcome[data-leaving] { opacity: 0; pointer-events: none; }
+html.welcome-pending, html.welcome-pending body { overflow: hidden !important; }
+rhine-welcome *, rhine-welcome *::before, rhine-welcome *::after {
+    box-sizing: border-box;
+    transition: none;
+    animation: none;
+}
+rhine-welcome .rhine-stage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1920px;
+    height: 1080px;
+    transform-origin: center;
+    isolation: isolate;
+    overflow: hidden;
+    background: #e8e5e1;
+}
+rhine-welcome .boot-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 51% 48%, #e7e7e1 0%, #e3e1dc 76%, #e4dfdb 100%);
+}
+rhine-welcome .boot-background svg { width: 100%; height: 100%; opacity: .09; filter: blur(3px); }
+rhine-welcome .boot-white { position: absolute; inset: 0; background: #fff; opacity: 0; }
+rhine-welcome .brand {
+    position: absolute;
+    left: 59px;
+    top: 114px;
+    z-index: 5;
+    width: 270px;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+}
+rhine-welcome .brand h1 { margin: 0; line-height: 48px; font-weight: 750; }
+rhine-welcome .brand > div { font-size: 19px; line-height: 23px; letter-spacing: .587px; font-weight: 600; }
+rhine-welcome .brand p { margin: 0; font-size: 35px; line-height: 40px; display: flex; justify-content: space-between; }
+rhine-welcome .brand p b { font-weight: 750; letter-spacing: 3px; }
+rhine-welcome .brand-analysis { position: relative; display: block; width: 189px; height: 40px; }
+rhine-welcome .brand-analysis > span { position: absolute; top: 0; letter-spacing: 0; font-kerning: none; }
+rhine-welcome .powered {
+    position: absolute;
+    right: 59px;
+    bottom: 108px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 24px;
+    font-size: 19px;
+}
+rhine-welcome .powered b { font-weight: 750; }
+rhine-welcome .powered i { height: 6px; width: 25px; background: #090a08; margin-left: 11px; }
+rhine-welcome .boot { position: absolute; left: calc(50% - 960px); top: calc(50% - 540px); width: 1920px; height: 1080px; pointer-events: none; z-index: 3; }
+rhine-welcome .boot-logo { position: absolute; width: 296px; height: 177px; left: 518px; top: 462px; opacity: 0; }
+rhine-welcome .boot-logo svg, rhine-welcome .welcome-logo svg { width: 100%; height: 100%; }
+rhine-welcome .boot-logo text, rhine-welcome .welcome-logo text, rhine-welcome .rhine-entry-mark text { font-family: "Rhine MiSans", sans-serif; }
+rhine-welcome .auth-status { position: absolute; left: 931px; top: 527px; font-size: 21.35px; display: flex; align-items: center; gap: 10px; white-space: nowrap; opacity: 0; }
+rhine-welcome .auth-status > span:first-child { font-size: 14px; }
+rhine-welcome .auth-status i { display: none; }
+rhine-welcome .access-text { position: absolute; top: 532px; left: 800px; width: 420px; text-align: left; font-size: 18px; opacity: 0; }
+rhine-welcome .scan { position: absolute; inset: 0; width: 1920px; height: 1080px; opacity: 0; transform: scale(var(--opening-scan-scale, 1)); transform-origin: center; }
+rhine-welcome .scan svg { width: 100%; height: 100%; }
+rhine-welcome .scan > span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; white-space: nowrap; }
+rhine-welcome .welcome { position: absolute; left: 720px; top: 403px; width: 480px; height: 340px; text-align: center; font-size: 55px; font-weight: 700; line-height: 1.05; opacity: 0; transform-origin: 50% 44%; }
+rhine-welcome .welcome-heading { position: relative; z-index: 1; line-height: 65px; font-size: 55px; white-space: nowrap; }
+rhine-welcome .welcome-panel { position: absolute; top: -59px; left: 5px; width: 470px; height: 392px; background: #080a08; }
+rhine-welcome .welcome-company { position: absolute; top: 67px; left: 35px; width: 410px; height: 60px; }
+rhine-welcome .welcome-company strong { display: block; position: absolute; inset: 0; padding: 5px 8px; background: transparent; color: #080a08; font-size: 48px; line-height: 50px; white-space: nowrap; letter-spacing: -.5px; }
+rhine-welcome .welcome-company .welcome-highlight { background: #080a08; color: #eeede8; }
+rhine-welcome .welcome-database { position: absolute; top: 134px; left: 0; width: 100%; font-size: 36px; line-height: 43px; white-space: nowrap; }
+rhine-welcome .welcome-logo { position: absolute; top: 187px; left: 138.5px; width: 203px; height: 121px; margin: 0; }
+rhine-welcome [data-opening-portrait="true"] :is(.access-text, .auth-status) { font-size: 36px; }
+rhine-welcome [data-opening-portrait="true"] .scan > span { font-size: 52px !important; --boot-phrase-tracking: 1px !important; }
+
+rhine-welcome .rhine-entry { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; background: #e8e5e1; }
+rhine-welcome .rhine-entry[hidden] { display: none; }
+rhine-welcome .rhine-entry-mark { width: min(52vw, 260px); margin-bottom: 32px; }
+rhine-welcome .rhine-entry-label { margin: 0 0 28px; font-size: clamp(10px, 2.6vw, 13px); letter-spacing: .15em; }
+rhine-welcome .rhine-start { min-height: 48px; border: 0; border-bottom: 1px solid #8e897b; border-radius: 0; padding: 8px 16px; background: transparent; color: inherit; font: inherit; font-size: 16px; cursor: pointer; touch-action: manipulation; }
+rhine-welcome .rhine-start:disabled { cursor: wait; opacity: .5; }
+rhine-welcome .rhine-entry-note { margin-top: 18px; font-size: 12px; color: #625f54; }
+rhine-welcome .rhine-skip { position: absolute; right: max(24px, env(safe-area-inset-right)); top: max(24px, env(safe-area-inset-top)); display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 8px 12px; color: #393b32; font-size: 12px; text-decoration: none; touch-action: manipulation; }
+rhine-welcome :is(.rhine-start, .rhine-skip):focus-visible { outline: 2px solid #a67d48; outline-offset: 5px; }
+@media (hover: hover) and (pointer: fine) {
+    rhine-welcome :is(.rhine-start, .rhine-skip):hover { background: rgb(8 10 8 / 6%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    rhine-welcome { transition-duration: 100ms; }
+}

@@ -1,0 +1,66 @@
+/* Fixed Novecento phrase drawings; the licensed font files are not embedded. */
+rhine-welcome .boot-phrase {
+  display: inline-flex;
+  height: 1em;
+  align-items: stretch;
+  vertical-align: -0.16em;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+rhine-welcome .boot-phrase-letter {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  height: 1em;
+  margin-inline-end: var(--boot-phrase-tracking, 0px);
+}
+rhine-welcome .boot-phrase-letter:last-child { margin-inline-end: 0; }
+rhine-welcome .boot-custom-letter {
+  width: auto;
+  white-space: pre;
+  font-family: "Rhine MiSans", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+rhine-welcome .boot-phrase[hidden], rhine-welcome .boot-phrase-letter[hidden] { display: none; }
+rhine-welcome .boot-phrase svg.boot-letter-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: currentColor;
+}
+rhine-welcome .boot-phrase-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: pre;
+}
+rhine-welcome .boot-lettering-fallback > .boot-phrase-label {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+}
+rhine-welcome #auth-message { --boot-phrase-tracking: -0.00909em; }
+rhine-welcome .auth-status { top: 527px; gap: 10px; font-size: 21.35px; }
+rhine-welcome .welcome-company { --boot-phrase-tracking: -0.5px; }
+rhine-welcome .brand h1 {
+  position: relative;
+  height: 48px;
+  font-size: 50.75px;
+  letter-spacing: 0;
+  --boot-phrase-tracking: 1px;
+}
+rhine-welcome .brand h1 > .boot-phrase {
+  position: absolute;
+  left: 0;
+  top: 1.425px;
+}
+rhine-welcome [data-layout="opening"][data-opening-portrait="true"] .scan > span {
+  --boot-phrase-tracking: 1px !important;
+}

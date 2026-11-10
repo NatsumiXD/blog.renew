@@ -1,10 +1,26 @@
-/* Page transition animations with Swup */
+:root {
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --page-enter-duration: 220ms;
+    --page-leave-duration: 120ms;
+}
+
+/* Swup owns both phases; animate the container once, without a nested fade. */
 .transition-swup-fade {
     opacity: 1;
-    transition: opacity 120ms cubic-bezier(0.23, 1, 0.32, 1) !important;
+    transform: none;
+}
+html.is-changing .transition-swup-fade {
+    transition:
+        opacity var(--page-enter-duration) var(--ease-out),
+        transform var(--page-enter-duration) var(--ease-out) !important;
 }
 html.is-animating .transition-swup-fade {
     opacity: 0 !important;
+    transform: translateY(8px);
+}
+html.is-leaving .transition-swup-fade {
+    transition-duration: var(--page-leave-duration) !important;
+    transform: none;
 }
 
 /* Public chrome stays mounted; avoid replaying first-load staggers on new content. */
@@ -13,26 +29,10 @@ html[data-client-navigation] .onload-animation {
     animation: none;
 }
 
-/* The incoming container is new DOM; explicitly fade it in after replacement. */
-html[data-client-navigation] #content-wrapper {
-    animation: page-content-in 140ms cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-@keyframes page-content-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .onload-animation { animation: none; opacity: 1; }
-    .transition-swup-fade { transition-duration: 80ms !important; }
-    html[data-client-navigation] #content-wrapper { animation-duration: 80ms; }
-}
-
 /* Fade-in animations for components */
 @keyframes fade-in-up {
     0% {
-        transform: translateY(2rem);
+        transform: translateY(12px);
         opacity: 0;
     }
     100% {
@@ -44,7 +44,7 @@ html[data-client-navigation] #content-wrapper {
 /* Main components */
 .onload-animation {
     opacity: 0;
-    animation: 300ms fade-in-up;
+    animation: 240ms var(--ease-out) fade-in-up;
     animation-fill-mode: forwards;
 }
 #navbar {
@@ -73,4 +73,24 @@ html[data-client-navigation] #content-wrapper {
 #post-container :nth-child(4) { animation-delay: calc(var(--content-delay) + 175ms) }
 #post-container :nth-child(5) { animation-delay: calc(var(--content-delay) + 250ms) }
 #post-container :nth-child(6) { animation-delay: calc(var(--content-delay) + 325ms) }
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.is-changing .transition-swup-fade {
+        transition-property: opacity !important;
+        transition-duration: 100ms !important;
+    }
+    html.is-animating .transition-swup-fade {
+        transform: none;
+    }
+    .onload-animation {
+        animation-name: fade-in;
+        animation-duration: 100ms;
+        animation-delay: 0ms !important;
+    }
+}
 

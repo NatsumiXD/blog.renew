@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+import ImageWrapper from "../components/misc/ImageWrapper.astro";
+import { profileConfig, siteConfig } from "../config";
+import { friends } from "../friends.config";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { url } from "../utils/url-utils";
+
+const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site).href;
+const telegramContact = profileConfig.links.find((link) => link.icon === "fa6-brands:telegram");
+---
+
+<MainGridLayout title="友链" description="在这里，遇见一些有趣的朋友，发现更多值得阅读的博客。">
+    <div class="space-y-4">
+        <header class="card-base px-6 py-8 sm:px-9">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--btn-regular-bg)] text-[var(--primary)]">
+                <Icon name="fa6-solid:link" class="text-xl" />
+            </div>
+            <h1 class="text-90 mb-3 text-3xl font-bold">友链</h1>
+            <p class="text-75 leading-relaxed">互联网很大，很高兴在这里遇见你。</p>
+            <p class="text-50 mt-1 text-sm leading-relaxed">去朋友们的小站坐坐，看看不一样的风景。</p>
+        </header>
+
+        <section class="card-base px-6 py-7 sm:px-9" aria-labelledby="friends-heading">
+            <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <h2 id="friends-heading" class="text-90 text-xl font-bold">我的朋友们</h2>
+                {friends.length > 0 && <span class="rounded-lg bg-[var(--btn-regular-bg)] px-3 py-1 text-sm text-[var(--primary)]">{friends.length} 位朋友</span>}
+            </div>
+            {friends.length > 0 ? (
+                <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {friends.map((friend) => (
+                        <li class="min-w-0">
+                            <a href={friend.url} target="_blank" rel="noopener noreferrer"
+                                aria-label={`访问 ${friend.name}（新窗口打开）`}
+                                class="friend-link group flex h-full items-start gap-4 rounded-2xl border border-[var(--line-color)] p-5 hover:bg-[var(--btn-plain-bg-hover)]">
+                                <div class="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-[var(--btn-regular-bg)]">
+                                    <span aria-hidden="true" class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[var(--primary)]">{Array.from(friend.name)[0]}</span>
+                                    {friend.avatar && <ImageWrapper src={friend.avatar} alt="" class="h-full w-full" />}
+                                </div>
+                                <div class="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                                    <h3 class="text-90 mb-1 font-bold group-hover:text-[var(--primary)]">{friend.name}</h3>
+                                    <p class="text-50 text-sm leading-relaxed">{friend.description}</p>
+                                </div>
+                                <Icon name="fa6-solid:arrow-up-right-from-square" class="text-30 mt-1 shrink-0 text-xs" />
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <div class="rounded-2xl border border-dashed border-[var(--line-color)] px-5 py-10 text-center">
+                    <Icon name="fa6-regular:paper-plane" class="mx-auto mb-4 text-3xl text-[var(--primary)]" />
+                    <p class="text-75 mb-2 font-medium">虚位以待，期待与你相遇</p>
+                    <p class="text-50 mb-5 text-sm leading-relaxed">这里还没有友链，欢迎成为第一位朋友。</p>
+                    <a href="#exchange" class="friend-link btn-regular inline-flex min-h-11 rounded-xl px-5 text-sm font-medium">交换友链</a>
+                </div>
+            )}
+        </section>
+
+        <section id="exchange" class="card-base scroll-mt-6 px-6 py-7 sm:px-9" aria-labelledby="exchange-heading">
+            <h2 id="exchange-heading" class="text-90 mb-3 text-xl font-bold">交换友链</h2>
+            <p class="text-75 text-sm leading-7">如果你也有一个记录生活、分享想法的小站，欢迎通过 QQ{telegramContact && " 或 Telegram"} 联系我。请带上你的站点名称、地址、头像和一句话介绍。</p>
+            <div class="mt-6 rounded-2xl bg-[var(--btn-regular-bg)] p-5 sm:p-6">
+                <h3 class="text-90 mb-4 font-bold">本站信息</h3>
+                <dl class="space-y-3 text-sm">
+                    <div class="grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+                        <dt class="text-50">名称</dt>
+                        <dd class="text-75 break-words">{siteConfig.title}</dd>
+                    </div>
+                    <div class="grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+                        <dt class="text-50">地址</dt>
+                        <dd class="min-w-0"><a href={siteUrl} class="friend-link rounded text-[var(--primary)] underline-offset-4 hover:underline [overflow-wrap:anywhere]">{siteUrl}</a></dd>
+                    </div>
+                    <div class="grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+                        <dt class="text-50">介绍</dt>
+                        <dd class="text-75 break-words">{siteConfig.subtitle}</dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href={url("/qq/")} class="friend-link btn-regular inline-flex min-h-12 gap-2 rounded-xl px-6 font-medium">
+                    <Icon name="fa6-brands:qq" class="text-lg" />QQ 联系
+                </a>
+                {telegramContact && <a href={telegramContact.url} target="_blank" rel="noopener noreferrer" class="friend-link btn-regular inline-flex min-h-12 gap-2 rounded-xl px-6 font-medium">
+                    <Icon name="fa6-brands:telegram" class="text-lg" />Telegram 联系
+                </a>}
+            </div>
+        </section>
+    </div>
+</MainGridLayout>
+
+<style>
+    .friend-link:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 4px;
+    }
+</style>

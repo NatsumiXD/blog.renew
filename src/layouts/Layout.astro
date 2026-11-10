@@ -44,7 +44,7 @@ let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
 const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
 
 // defines global css variables
-// why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
+// Variables are defined in this layout: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
 const configHue = siteConfig.themeColor.hue;
 if (!banner || typeof banner !== "string" || banner.trim() === "") {
 	banner = siteConfig.banner.src;
@@ -161,7 +161,7 @@ const bannerOffset =
 	>
 		<ConfigCarrier></ConfigCarrier>
 		<div id="blog-surface"><slot /></div>
-		<WelcomeScreen />
+		{isHomePage && <WelcomeScreen />}
 
 		<!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
@@ -398,9 +398,9 @@ const setup = () => {
 		}
 	})
 */
-	window.swup.hooks.on('link:click', () => {
-		// Remove the delay for the first time page load
-		document.documentElement.style.setProperty('--content-delay', '0ms')
+	window.swup.hooks.on('link:click', (visit: {animation: {animate: boolean}}, {event}: {event: MouseEvent}) => {
+		// Keyboard navigation should respond immediately.
+		if (event.detail === 0) visit.animation.animate = false;
 
 		// prevent elements from overlapping the navbar
 		if (!bannerEnabled) {
@@ -418,6 +418,8 @@ const setup = () => {
 	window.swup.hooks.on('content:replace', initCustomScrollbar)
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		document.documentElement.setAttribute('data-client-navigation', '');
+		// Also reset first-load delays for browser back/forward navigation.
+		document.documentElement.style.setProperty('--content-delay', '0ms');
 		// change banner height immediately when a link is clicked
 		const bodyElement = document.querySelector('body')
 		if (pathsEqual(visit.to.url, url('/'))) {

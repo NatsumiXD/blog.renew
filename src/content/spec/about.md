@@ -14,6 +14,7 @@
 
 - **GitHub**：[NatsumiXD](https://github.com/NatsumiXD)
 - **QQ**：[@Rakurin](../qq/)，点击进入联系页面。
+- **Telegram**：[@natsumiawa](https://t.me/natsumiawa)
 
 如果文章里有错误，或你有想交流的话题，欢迎联系我。
 

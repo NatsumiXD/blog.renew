@@ -38,12 +38,11 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		LinkPreset.About,
 		{
-			name: "GitHub",
-			url: "https://github.com/NatsumiXD", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			name: "友链",
+			url: "/friends/",
 		},
+		LinkPreset.About,
 	],
 };
 
@@ -56,6 +55,11 @@ export const profileConfig: ProfileConfig = {
 			name: "QQ：@Rakurin",
 			icon: "fa6-brands:qq",
 			url: "/qq/",
+		},
+		{
+			name: "Telegram：@natsumiawa",
+			icon: "fa6-brands:telegram",
+			url: "https://t.me/natsumiawa",
 		},
 		{
 			name: "GitHub",
