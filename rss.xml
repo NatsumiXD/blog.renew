@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BakaHome</title><description>笨蛋博客</description><link>https://blog.natsumi.dev/</link><language>zh_CN</language><item><title>你好，笨蛋世界</title><link>https://blog.natsumi.dev/posts/hello-bakaworld/</link><guid isPermaLink="true">https://blog.natsumi.dev/posts/hello-bakaworld/</guid><description>我是 Rakurin Natsumi。这个博客的第一篇文章，从一句简单的你好开始。</description><pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;从这里开始&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>BakaHome</title><description>笨蛋博客</description><link>https://blog.natsumi.dev/</link><language>zh_CN</language><item><title>小红书跨境购的糟糕体验</title><link>https://blog.natsumi.dev/posts/fuck-redshop-terrible-buying-expenrence/</link><guid isPermaLink="true">https://blog.natsumi.dev/posts/fuck-redshop-terrible-buying-expenrence/</guid><description>日你妈的小红书</description><pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;如果你不是抖M 请不要在境外通过小红书购买商品，因为这个平台就是世界上最不负责任的平台。&lt;/h1&gt;
+&lt;h2&gt;起因&lt;/h2&gt;
+&lt;p&gt;对象在新西兰留学，在小红书上面购买了水晶项链（价值962CNY），从中国发往新西兰的奥克兰市。&lt;/p&gt;
+&lt;p&gt;承运对象为&lt;strong&gt;菜鸟国际&lt;/strong&gt;，单号为CN0********513NZ&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10-29 15:25 订单创建
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10-29 22:29 商家发货
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;快递正式踏上旅途&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10-29 22:29 到达江苏淮安
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10-31 12:45 到达广东深圳
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10-31 22:47 到达东莞，由 **广东东莞第三营业部**的快递员派送
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;10-31 23:08 由【APP集运仓】签收
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;11-11 15:15 最终在新西兰被签收
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; 我的对象并&lt;strong&gt;没有&lt;/strong&gt;拿到包裹，莫名其妙就被签收了，她住在公寓，去楼下找也没有找到任何消息，于是，包裹就这么丢了。&lt;/p&gt;
+&lt;h2&gt;寻找包裹&lt;/h2&gt;
+&lt;p&gt;包裹丢了自然是要寻找包裹。&lt;/p&gt;
+&lt;p&gt;在确认签收没有收到包裹后，我和我对象开始了寻找包裹之旅。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先我没有收到包裹&lt;/li&gt;
+&lt;li&gt;CN开头NZ结尾的快递单号在&lt;a href=&quot;https://gpn.cainiao.com/home&quot;&gt;菜鸟国际&lt;/a&gt;官网无法查询到任何信息，使用DeepSeek/GPT或者快递100/17track完全无法搜索到这个快递单号的任何信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;第一次分析&lt;/h3&gt;
+&lt;p&gt;首先既然单号&lt;strong&gt;无法找到&lt;/strong&gt;那就要找的真的单号才能联系到快递员，那么真的单号要如何获取呢？&lt;/p&gt;
+&lt;p&gt;答案是：无法通过自助方式获取任何单号（商家也不行）。小红书&lt;strong&gt;默认&lt;/strong&gt;不给默认单号，CN开头NZ结尾的快递单号是小红书内部的快递单号。&lt;/p&gt;
+&lt;p&gt;于是找到了小红书客服和Redshop客服（负责海外购）。&lt;/p&gt;
+&lt;p&gt;首先，两个客服默认全部都是AI，没有任何作用！小红书客服可以通过12315的方式&lt;strong&gt;威胁&lt;/strong&gt;从而转人工但是Redshop&lt;strong&gt;完全&lt;/strong&gt;没有人工客服。&lt;/p&gt;
+&lt;p&gt;其次，客服的&lt;strong&gt;无用&lt;/strong&gt;程度超乎了我的想象！&lt;/p&gt;
+&lt;p&gt;因为当小红书客服咨询过多，会用&lt;em&gt;很遗憾队长没有帮到您，队长已经帮您升级成功，预计24消失内会联系您沟通售后问题，请注意接听9501开头的来电&lt;/em&gt;，来敷衍搪塞客户，实际上根本不会有&lt;strong&gt;任何&lt;/strong&gt;电话打过来。&lt;/p&gt;
+&lt;p&gt;其次，需要用12315才能再次转接人工客服，不然全部都是 &lt;em&gt;24小时&lt;/em&gt; 电话 。&lt;/p&gt;
+&lt;p&gt;再者，这个人工客服也是&lt;strong&gt;一点用都没有&lt;/strong&gt;！&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;没有权限获得外国段的快递单号&lt;/li&gt;
+&lt;li&gt;推给我们去找菜鸟&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;好，那我问菜鸟：&lt;em&gt;这个单号查不到&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因为小红书给的是小红书的单号不是菜鸟的单号，我要去菜鸟查那我还要去找小红书要单号&lt;/p&gt;
+&lt;p&gt;小红书我操你妈逼！&lt;/p&gt;
+&lt;p&gt;对了，Redshop的客服也只会踢皮球，比小红书客服还要没有用，也就是说如果你是外国人的话，你的快件基本上就丢了。因为Redshop不会给你任何单号，真他妈神了小红书。&lt;/p&gt;
+&lt;h3&gt;第二次分析&lt;/h3&gt;
+&lt;p&gt;又回到了起点，寻找快递单号&lt;/p&gt;
+&lt;p&gt;我又一次找到了小红书官方客服，第一次，松了一点口说是&lt;strong&gt;申通快递&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我想，可能压根不是菜鸟国际，所以我打电话给申通，他妈的申通说这个格式根本就不是申通快递的。&lt;/p&gt;
+&lt;p&gt;小红书我操你妈！&lt;/p&gt;
+&lt;p&gt;然后我又找上了人工，这次人工终于有点脑子了，给了申通快递的单号（国内段），但是还是不给不了新西兰段的单号，因为小红书客服&lt;strong&gt;没 有 权 限 ！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;s&gt;我现在合理怀疑是因为小红书不想增加丢件沟通的成本所以才不给真实快递单号而使用他那个b小红书单号&lt;/s&gt;&lt;/p&gt;
+&lt;p&gt;至于Redshop客服，呃呃依旧路边一条。&lt;/p&gt;
+&lt;p&gt;所有我带着单号在快递100和申通国际查询，碰碰运气但是依旧只有国内的记录。&lt;/p&gt;
+&lt;p&gt;线索又断了....&lt;/p&gt;
+&lt;p&gt;最后我看到了那个【APP集运仓】。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10-31 23:08 由【APP集运仓】签收
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个集运仓是什么？（这时我已经差不多要排除了菜鸟国际承运的可能，也通过应用商店搜索了是否有个APP叫作“集运仓”，但是还是无果。至于为什么前面没有考虑到找申通客服，是因为当时我还没有从小红书客服拿到单号。）&lt;/p&gt;
+&lt;p&gt;于是我又找上了申通客服，问这个 APP集运仓 是哪个快递平台的集运仓。&lt;/p&gt;
+&lt;p&gt;答案是：菜鸟&lt;/p&gt;
+&lt;p&gt;没错，这个包裹就是走的菜鸟国际，但是小红书既没有告诉我原始单号，客服也没有第一时间告诉我国内段的单号，国外段单号更是滚木。他妈的小红书你死完全家了吗？&lt;/p&gt;
+&lt;p&gt;有了两个单号，我终于有点线索了。&lt;/p&gt;
+&lt;p&gt;于是我找到了菜鸟的客服。&lt;/p&gt;
+&lt;p&gt;依旧：&lt;em&gt;我们是国内的菜鸟只能查询国内的包裹哦&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;再找了一次：&lt;em&gt;这个是小红书的单号呢请你在小红书咨询客服哦&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;小红书我操你妈逼！又是你，你为什么一直不敢给客户真实单号呢？难道是为了让客户丢件你们不用承担损失让客户和商家承担吗？这是我见过最不服责任的平台。&lt;/p&gt;
+&lt;p&gt;然后，我找到菜鸟国际的官网，没有除了电话以外的联系方式，于是我又注意到了 【集运】二字。&lt;/p&gt;
+&lt;p&gt;这两个字是破案的关键，最终我通过检索检索到了 &lt;strong&gt;菜鸟集运&lt;/strong&gt; 这是另外一个菜鸟的网站，从中找到了菜鸟的在线客服（这里菜鸟集运的APP下载链接是烂的，菜鸟集运小程序的客服也让我去找小红书 or 国内没有权限），但是经过弯弯绕绕的一堆事情，终于通过申通快递单号找到了对应新西兰段的单号。&lt;/p&gt;
+&lt;p&gt;拿到单号后：前者为小红书，后者为真实单号的信息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image-1.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;小红书隐瞒了这些信息&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;我不知道是谁在新西兰承运&lt;/li&gt;
+&lt;li&gt;我拿不到快递单号&lt;/li&gt;
+&lt;li&gt;我不知道是谁签收的&lt;/li&gt;
+&lt;li&gt;我不知道丢件了去联系谁&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以从头到尾都是小红书在隐瞒信息，阻碍客户找到包裹，同时也没有渠道给客户去解决问题。&lt;/p&gt;
+&lt;p&gt;小红书就是世界上最&lt;strong&gt;垃圾&lt;/strong&gt;的电商平台。&lt;/p&gt;
+&lt;p&gt;至此我终于拿到了整个订单的完整信息：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;国内是申通发货&lt;/li&gt;
+&lt;li&gt;由菜鸟国际承运&lt;/li&gt;
+&lt;li&gt;由新西兰的NZPOST公司提供新西兰本地配送服务&lt;/li&gt;
+&lt;li&gt;由Reception得知Kxx是一个酒店前台&lt;/li&gt;
+&lt;li&gt;我可以通过NZPOST的工单找到送去的是哪一个酒店&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个 &lt;code&gt;K Recetion&lt;/code&gt;是破案的关键，对象认识的人刚好知道这个Kevin是谁，所以省去了第五步，直接找到了酒店拿到了快递。&lt;/p&gt;
+&lt;h1&gt;如过你不是抖M，请不要在境外通过小红书购买商品，因为他为了减少扯皮会把所有客户应当知情的信息隐藏起来，包括最重要的你查询快递，联系快递员的方式：快递单号&lt;/h1&gt;
+</content:encoded></item><item><title>你好，笨蛋世界</title><link>https://blog.natsumi.dev/posts/hello-bakaworld/</link><guid isPermaLink="true">https://blog.natsumi.dev/posts/hello-bakaworld/</guid><description>我是 Rakurin Natsumi。这个博客的第一篇文章，从一句简单的你好开始。</description><pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;从这里开始&lt;/h2&gt;
 &lt;p&gt;你好，我是 &lt;strong&gt;Rakurin Natsumi&lt;/strong&gt;，也可以叫我 &lt;strong&gt;Rakurin&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;欢迎来到笨蛋博客。这是这里的第一篇文章，也是一个小小的起点。&lt;/p&gt;
 &lt;p&gt;给博客起这个名字，是想让写东西这件事轻松一点。想法还没完全整理好，也可以先记下来；遇到不懂的事情，就慢慢弄明白。不必等到每一句都很漂亮，才开始表达。&lt;/p&gt;
